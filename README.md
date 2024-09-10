@@ -34,7 +34,5 @@ This tool allows you to transfer files from one directory to another based on se
 
 
 
-### I'm just a random female person from Germany, in a love-hate relationship with ChatGPT-4o, hoping it won't gaslight me at some point.
-
-
-### This code is probably broken af.
+- **I'm just a random female person from Germany, in a love-hate relationship with ChatGPT-4o, hoping it won't gaslight me at some point.**
+- **This code is probably broken af.**
