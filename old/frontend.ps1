@@ -31,7 +31,7 @@ function Convert-HexToColor {
 }
 
 # Funktion zum Laden des Farbpresets aus einer .cfg Datei und Konvertierung der Strings zu Farben
-function Get-ColorPreset {
+function Load-ColorPreset {
     param (
         [string]$presetFile
     )
@@ -39,11 +39,7 @@ function Get-ColorPreset {
     if (Test-Path $presetFile) {
         $config = Get-Content $presetFile | ForEach-Object {
             $key, $value = $_ -split '='
-            
-    if (-not [string]::IsNullOrEmpty($key) -and -not [string]::IsNullOrEmpty($value) -and -not $key.StartsWith("#")) {
-        [PSCustomObject]@{ Key = $key.Trim(); Value = $value.Trim() }
-    }
-    
+            [PSCustomObject]@{ Key = $key.Trim(); Value = $value.Trim() }
         }
 
         # Konvertiere das Preset in eine Hashtable für den schnellen Zugriff
@@ -106,7 +102,7 @@ function Apply-ColorPreset {
 }
 
 # Funktion zum Deaktivieren der anderen Checkboxen
-function Disable-OtherCheckboxes {
+function Deactivate-OtherCheckboxes {
     param (
         [System.Windows.Forms.CheckBox]$activeCheckbox
     )
@@ -254,36 +250,36 @@ $groupBoxThemes.Controls.Add($checkbox4)
 # Event-Handler für die Checkboxen
 $checkbox1.Add_CheckedChanged({
     if ($checkbox1.Checked) {
-        Disable-OtherCheckboxes -activeCheckbox $checkbox1
+        Deactivate-OtherCheckboxes -activeCheckbox $checkbox1
         $presetFile = ".\color_preset_1.cfg"
-        $colorPreset = Get-ColorPreset -presetFile $presetFile
+        $colorPreset = Load-ColorPreset -presetFile $presetFile
         Apply-ColorPreset -colorPreset $colorPreset
     }
 })
 
 $checkbox2.Add_CheckedChanged({
     if ($checkbox2.Checked) {
-        Disable-OtherCheckboxes -activeCheckbox $checkbox2
+        Deactivate-OtherCheckboxes -activeCheckbox $checkbox2
         $presetFile = ".\color_preset_2.cfg"
-        $colorPreset = Get-ColorPreset -presetFile $presetFile
+        $colorPreset = Load-ColorPreset -presetFile $presetFile
         Apply-ColorPreset -colorPreset $colorPreset
     }
 })
 
 $checkbox3.Add_CheckedChanged({
     if ($checkbox3.Checked) {
-        Disable-OtherCheckboxes -activeCheckbox $checkbox3
+        Deactivate-OtherCheckboxes -activeCheckbox $checkbox3
         $presetFile = ".\color_preset_3.cfg"
-        $colorPreset = Get-ColorPreset -presetFile $presetFile
+        $colorPreset = Load-ColorPreset -presetFile $presetFile
         Apply-ColorPreset -colorPreset $colorPreset
     }
 })
 
 $checkbox4.Add_CheckedChanged({
     if ($checkbox4.Checked) {
-        Disable-OtherCheckboxes -activeCheckbox $checkbox4
+        Deactivate-OtherCheckboxes -activeCheckbox $checkbox4
         $presetFile = ".\color_preset_4.cfg"
-        $colorPreset = Get-ColorPreset -presetFile $presetFile
+        $colorPreset = Load-ColorPreset -presetFile $presetFile
         Apply-ColorPreset -colorPreset $colorPreset
     }
 })
