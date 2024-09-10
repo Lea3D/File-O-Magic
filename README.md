@@ -1,8 +1,8 @@
 
-# File Transfer Tool
+# File-O-Magic
 
 ## Overview
-This tool allows you to transfer files from one directory to another based on search criteria, with customizable themes.
+File-O-Magic is a tool that allows you to transfer files from one directory to another based on search criteria, with customizable themes.
 
 ## Structure
 - **/scripts/**: Contains the main scripts (frontend, backend, and batch starter).
@@ -11,4 +11,9 @@ This tool allows you to transfer files from one directory to another based on se
 
 ## Usage
 1. Edit the `.cfg` files in the `configs` folder to customize your color themes.
-2. Run the `start.bat` file to launch the GUI.
+2. Run the `start.bat` file to launch the File-O-Magic GUI.
+
+## Features
+- Customizable search strings for filtering files.
+- Flexible file transfer based on selected conditions (AND, OR, NOT).
+- Multiple color presets to personalize the look and feel of the tool.
