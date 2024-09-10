@@ -73,12 +73,12 @@ function Get-ColorPreset {
 }
 
 # Funktion zum Anwenden des Farbpresets auf die GUI
-function Apply-ColorPreset {
+function Set-ColorPreset {
     param (
         [hashtable]$colorPreset
     )
 
-    if ($colorPreset -ne $null) {
+    if ($null -ne $colorPreset) {
         # Anwenden der Farben, falls gültig
         $form.BackColor = $colorPreset['BackgroundColor']
         $form.ForeColor = $colorPreset['ForegroundColor']
@@ -251,13 +251,27 @@ $checkbox4.Text = "4"
 $checkbox4.Location = New-Object System.Drawing.Point(20, 120)
 $groupBoxThemes.Controls.Add($checkbox4)
 
+# Sicherstellen, dass immer nur eine Checkbox aktiviert ist
+function Disable-OtherCheckboxes {
+    param (
+        [System.Windows.Forms.CheckBox]$activeCheckbox
+    )
+
+    $checkboxes = @($checkbox1, $checkbox2, $checkbox3, $checkbox4)
+    foreach ($checkbox in $checkboxes) {
+        if ($checkbox -ne $activeCheckbox) {
+            $checkbox.Checked = $false
+        }
+    }
+}
+
 # Event-Handler für die Checkboxen
 $checkbox1.Add_CheckedChanged({
     if ($checkbox1.Checked) {
         Disable-OtherCheckboxes -activeCheckbox $checkbox1
         $presetFile = ".\color_preset_1.cfg"
         $colorPreset = Get-ColorPreset -presetFile $presetFile
-        Apply-ColorPreset -colorPreset $colorPreset
+        Set-ColorPreset -colorPreset $colorPreset
     }
 })
 
@@ -266,7 +280,7 @@ $checkbox2.Add_CheckedChanged({
         Disable-OtherCheckboxes -activeCheckbox $checkbox2
         $presetFile = ".\color_preset_2.cfg"
         $colorPreset = Get-ColorPreset -presetFile $presetFile
-        Apply-ColorPreset -colorPreset $colorPreset
+        Set-ColorPreset -colorPreset $colorPreset
     }
 })
 
@@ -275,7 +289,7 @@ $checkbox3.Add_CheckedChanged({
         Disable-OtherCheckboxes -activeCheckbox $checkbox3
         $presetFile = ".\color_preset_3.cfg"
         $colorPreset = Get-ColorPreset -presetFile $presetFile
-        Apply-ColorPreset -colorPreset $colorPreset
+        Set-ColorPreset -colorPreset $colorPreset
     }
 })
 
@@ -284,7 +298,7 @@ $checkbox4.Add_CheckedChanged({
         Disable-OtherCheckboxes -activeCheckbox $checkbox4
         $presetFile = ".\color_preset_4.cfg"
         $colorPreset = Get-ColorPreset -presetFile $presetFile
-        Apply-ColorPreset -colorPreset $colorPreset
+        Set-ColorPreset -colorPreset $colorPreset
     }
 })
 
@@ -339,3 +353,4 @@ $buttonStart.Add_Click({
 
 # Form anzeigen
 $form.ShowDialog()
+
