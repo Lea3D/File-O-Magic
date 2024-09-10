@@ -1,17 +1,16 @@
-
 # File-O-Magic
 
 ## Overview
-This tool allows you to transfer files from one directory to another based on search criteria, with customizable themes.
+File-O-Magic is a tool designed to transfer files from one directory to another based on custom search criteria, with the added flair of customizable themes for a more personalized experience.
 
 ## Structure
-- **/scripts/**: Contains the main scripts (frontend, backend, and batch starter).
-- **/configs/**: Configuration files for different color themes.
-- **/functions/**: Reusable functions like color handling, file selection, and UI behavior.
+- **/scripts/**: Houses the core scripts, including frontend, backend, and batch starter.
+- **/configs/**: Stores configuration files for the various color themes.
+- **/functions/**: Contains reusable functions, such as color handling, file selection, and user interface (UI) behavior.
 
 ## Usage
-1. Edit the `.cfg` files in the `configs` folder to customize your color themes.
-2. Run the `start.bat` file to launch the GUI.
+1. Modify the `.cfg` files located in the `configs` folder to personalize your color themes.
+2. Execute the `start.bat` file to launch the graphical user interface (GUI).
 
 ## Tested Hardware
 
@@ -31,8 +30,7 @@ This tool allows you to transfer files from one directory to another based on se
 - **Graphics Passthrough**: NVIDIA GTX 1080 with custom VBIOS
 - **Disk Setup**: Virtio interface for virtual disk
 
+## Notes
 
-
-
-- **I'm just a random female person from Germany, in a love-hate relationship with ChatGPT-4o, hoping it won't gaslight me at some point.**
-- **This code is probably broken af.**
+- **Disclaimer**: I'm just a random ADHD-equipped female from Germany, in a love-hate relationship with ChatGPT-4, hoping it won’t gaslight me one day.
+- **Development Status**: This tool is under "heavy development" *cough*, so errors may and will occur. It's probably broken AF, as I (ChatGPT) wrote it for messin' around with some Radarr movie directories.
