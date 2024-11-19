@@ -32,5 +32,5 @@ File-O-Magic is a tool designed to transfer files from one directory to another 
 
 ## Notes
 
-- **Disclaimer**: I'm just a random ADHD-equipped female from Germany, in a love-hate relationship with ChatGPT-4, hoping it won’t gaslight me one day.
+- **Disclaimer**: I'm just a random ADHD-equipped female from Germany, in a love-hate relationship with ChatGPT-4o, hoping it won’t gaslight me one day.
 - **Development Status**: This tool is under "heavy development" *cough*, so errors may and will occur. It's probably broken AF, as I (ChatGPT) wrote it for messin' around with some Radarr movie directories.
